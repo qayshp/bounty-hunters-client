@@ -9,11 +9,22 @@ import './App.css'
 class App extends Component {
   constructor() {
     super()
+    this.state = {
+      bounties: [],
+      current: {}
+    }
   }
 
   render() {
-    const moreInfo = <ShowBounty />
-    const posters = []
+    const moreInfo = <ShowBounty bounty={this.state.current} />
+    const posters = this.state.bounties.map((bounty, index) => {
+      return (
+        <Poster
+          key={index}
+          bounty={bounty}
+        />
+      )
+    })
 
     return (
       <div className="App">
