@@ -33,8 +33,7 @@ class App extends Component {
       // fetch returns a fetch object, not JUST the data
       return response.json() // extract json from fetch object
     })
-    .then(json=>{
-      console.log(json)
+    .then(json => {
       this.setState({bounties: json})
     })
     .catch(err=>{
@@ -52,12 +51,10 @@ class App extends Component {
         current={this.state.current}
       />
     })
-    const more = this.state.current._id ?
-      <ShowBounty
+    const more = <ShowBounty
         bounty={this.state.current}
         key={this.state.current._id}
-      /> :
-      <h3>Crime is on the rise!</h3>
+      />
     return (
       <div className="App">
         <h1>WANTED</h1>
